@@ -1,5 +1,5 @@
-#include "./game.h"
-#include "./logic.h"
+#include "game.h"
+#include "logic.h"
 
 void switch_player(game_t *game) {
     if (game->player == PLAYER_X) {

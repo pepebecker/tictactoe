@@ -1,13 +1,10 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 #include <SDL2/SDL.h>
 
-#include "./game.h"
-#include "./logic.h"
-#include "./rendering.h"
+#include "game.h"
+#include "logic.h"
+#include "rendering.h"
 
-int main(int argc, char *argv[]) {
+int main() {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "Could not initialize SDL2: %s\n", SDL_GetError());
         return EXIT_FAILURE;
@@ -16,7 +13,7 @@ int main(int argc, char *argv[]) {
     SDL_Window *window = SDL_CreateWindow("TicTacToe", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
     if (window == NULL) {
-        fprintf("SDL_CreateWindow Error: %s\n", SDL_GetError());
+        printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
@@ -24,7 +21,7 @@ int main(int argc, char *argv[]) {
 
     if (renderer == NULL) {
         SDL_DestroyWindow(window);
-        fprintf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
+        printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
@@ -52,7 +49,7 @@ int main(int argc, char *argv[]) {
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-        render_game(renderer, &game);
+        render_game(renderer, game);
         SDL_RenderPresent(renderer);
     }
 

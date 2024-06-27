@@ -1,6 +1,11 @@
-build:
-	mkdir -p ./bin
-	cc ./src/*.c -lSDL2 -lSDL2_GFX -o ./bin/Game
+BIN = ./bin/tictactoe
 
-run:
-	./bin/Game
+run: build
+	$(BIN)
+
+build: clean
+	mkdir -p ./bin
+	cc -o $(BIN) ./src/*.c -I./include  -lSDL2 -lSDL2_gfx
+
+clean:
+	rm -rf ./bin

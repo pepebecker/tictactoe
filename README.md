@@ -2,7 +2,7 @@
 
 ## Requirements
 
-You need to have the following libraries installed on your machine
+You need to have the following libraries installed on your machine:
 
 * SDL2
 * SDL2_GFX
@@ -10,8 +10,8 @@ You need to have the following libraries installed on your machine
 ## Usage
 
 ```bash
-make      # compiles the game
-make run  # runs the game
+make build # compiles the game
+make run   # runs the game
 ```
 
 ## Contributing
